@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'galeria'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'setup.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,6 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [ #STATIC FILES DIRS, VAI INDICAR ONDE TODOS NOSSOS ARQUIVOS ESTATICOS ESTARÃO.
+    os.path.join(BASE_DIR, 'setup/static') #Aqui passamos como parâmetro o diretório base, e o caminho para a pasta.
+]#o, onde o python vai coletar os arquivos estáticos para ele fazer a implantação
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') #Caminho absoluto para o diretóri
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
